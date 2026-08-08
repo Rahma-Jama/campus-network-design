@@ -70,7 +70,7 @@ These are the moments I think say more about my understanding than the finished 
 ## Repository Structure
 
 ```
-/enterprise-campus-lan/
+/campus-network-design/
   README.md          <- this file
   changelog.md         <- full timestamped build/troubleshooting log
   /topology/            <- topology diagrams
