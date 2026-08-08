@@ -11,7 +11,7 @@ A simulated three-tier enterprise campus network built to practice translating C
 
 **Distribution** — 2 multilayer switches, meshed to the core and to each other, hosting all VLAN SVIs. Gateway redundancy is handled with HSRP, with active roles split across both switches per VLAN so traffic load isn't concentrated on one device.
 
-**Access** — 3 access switches, each with dual uplinks (one to each distribution switch) instead of daisy-chaining to one another, so a single distribution switch failure doesn't isolate an access switch.
+**Access** — 3 access switches, each with dual uplinks (one to each distribution switch) so a single distribution switch failure doesn't isolate an access switch.
 
 **WAN edge** — A separate router simulating the ISP, connected to the core routers, running OSPF and hosting a loopback (`8.8.8.8`) to act as a pingable "internet" target for testing NAT and reachability, since Packet Tracer's Cloud device doesn't provide real internet access.
 
@@ -36,7 +36,7 @@ Point-to-point router/switch links and WAN links use separate address space, kep
 ## Concepts Demonstrated
 
 - **VLAN segmentation and 802.1Q trunking** across access and distribution layers
-- **Redundant physical topology** — dual-homed access switches, meshed core/distribution, no single point of failure
+- **Redundant physical topology** — meshed core/distribution, no single point of failure
 - **Spanning Tree Protocol** — manual root bridge / bridge ID configuration to control topology deterministically rather than relying on default election
 - **HSRP (First Hop Redundancy Protocol)** — virtual gateway IPs per VLAN, with active roles deliberately split across both distribution switches for basic load distribution
 - **OSPF (single area)** — dynamic routing between core, distribution, and the simulated ISP router
@@ -72,9 +72,8 @@ These are the moments I think say more about my understanding than the finished 
 ```
 /campus-network-design/
   README.md          <- this file
-  changelog.md         <- full timestamped build/troubleshooting log
+  change log.pdf         <- full timestamped build/troubleshooting log
   /topology/            <- topology diagrams
   /configs/              <- full device running-configs (plain text)
-  /screenshots/           <- targeted config/testing screenshots referenced in the changelog
-  campus-lan.pkt           <- Packet Tracer file
+  campus-lan-project.pkt           <- Packet Tracer file
 ```
